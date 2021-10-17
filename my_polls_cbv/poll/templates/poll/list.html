@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}설문목록{% endblock title %}
+{% block contents %}
+<h1>설문목록</h1>
+
+설문 개수: {{question_list|length}} 개
+<ul>
+    {% for question in question_list %}
+        <li>
+            <!-- /poll/vote_form/{{question.pk}} -->
+            {# url "app_name:path명" [path에 넘길 값] #}
+            <a href="{% url 'poll:vote' question.pk %}"><!-- /poll/vote_form/question의 id -->
+                {{question.pk}}. {{question.question_text}}
+            </a>
+        {% comment %}
+            {{question.question_text|truncatewords:2}} ||
+            {{question.question_text|truncatechars:10}} ||
+        {% endcomment %}    
+            {{question.pub_date|date:'Y-m-d'}} 
+        </li>
+    {% empty %}
+        등록된 설문이 없습니다.
+    {% endfor %}
+</ul>
+
+{% endblock contents %}

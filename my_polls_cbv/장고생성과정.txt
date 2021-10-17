@@ -1,0 +1,5 @@
+1. 프로젝트 생성 - my_polls
+2. app 생성 - poll, member, board
+3. Model,
+   View
+   Template

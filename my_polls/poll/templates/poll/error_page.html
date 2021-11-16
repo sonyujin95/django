@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block title %}Error Page{% endblock title %}
+
+{% block contents %}
+
+<h1>다음 이유로 요청하신 작업을 처리하지 못했습니다.</h1>
+이유: {{error_message}}
+
+{% endblock contents %}

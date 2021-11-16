@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% load bootstrap4 %}
+
+{% block title %}글 등록{% endblock title %}
+
+{# CreateView에서 ModelForm객체를 form이란 이름으로 context object로 전달. #}
+{% block contents %}
+<h1>글등록</h1>
+
+<!-- action 생략: 현재 page를 요청한 url과 같은 url로 요청.
+등록 폼페이지 요청, 등록처리하는 url이 동일하기 때문에 action을 생략.
+
+pip install django-bootstrap4
+form 출력 시 bootstrap 디자인을 적용 해주는 패키지.
+- 설치
+- settings.py INSTALLED_APP에 등록
+-->
+<!-- 파일 업로드 
+    form태그 : method=post
+                enctype=multipart/form-data
+ -->
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% bootstrap_form form %}  <!-- ModelForm을 이용해서 입력 양식을 작성 -->
+    
+    <button type='submit' class='btn btn-primary'>글등록</button>
+    <button type='reset' class='btn btn-primary'>초기화</button>
+
+</form>
+
+{% endblock contents %}
+
+{'form':PostForm()}

@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% block title %}글 목록{% endblock title %}
+{% block contents %}
+<h1>글목록</h1>
+<table class='table table-hover'>
+    <thead class='thead-dark'>
+        <tr>
+            <th>NO</th>
+            <th>글제목</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for post in object_list %}
+        <tr>
+            <td>{{post.pk}}</td>
+            <td>
+                <a href="{% url 'board:detail' post.pk %}">{{post.title}}</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<!--
+    페이징 처리 -> 페이지번호 링크처리
+    template 태그/변수에서 Paginator 접근: paginator 변수명을 이용
+    page_obj 변수 : 현재페이지의 Page 객체.
+    is_paginated 변수 : 페이징처리 유무 bool으로 반환.(ListView: paginate_by를 설정 했으면: True, 안했으면: False)
+-->
+{% if is_paginated %}
+<ul class="pagination justify-content-center">
+<!-- 이전페이지그룹으로 이동하는 링크 -->
+{% if has_previous %}
+    <li class="page-item">
+        <a href="{% url 'board:list' %}?page={{previous_page_no}}" class="page-link">이전</a>
+    </li>
+{% else %}
+    <li class="page-item">
+        <span class="page-link">이전</span>
+    </li>
+{% endif %}
+
+<!-- 페이지번호 링크. page_obj.number:현재페이지의 번호 -->
+{% for page in page_range %}
+    {% if page == page_obj.number %}
+        <li class='page-item active'>
+            <span class='page-link'>{{page}}</span>
+        </li>
+    {% else %}
+        <li class='page-item'>
+            <a href="{% url 'board:list' %}?page={{page}}" class='page-link'>{{page}}</a>
+        </li>
+    {% endif %}
+{% endfor %}
+
+<!-- 다음페이지그룹으로 이동하는 링크 -->
+{% if has_next %}
+    <li class="page-item">
+        <a href="{% url 'board:list' %}?page={{next_page_no}}" class='page-link'>다음</a>
+    </li>
+{% else %}
+    <li class="page-item">
+        <span class="page-link">다음</span>
+    </li>
+{% endif %}
+</ul>
+{% endif %}
+
+
+
+
+{% endblock contents %}

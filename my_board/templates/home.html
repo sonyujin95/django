@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}홈{% endblock title %}
+{% block contents %}
+<h1>홈페이지</h1>
+{% if user.is_authenticated %}
+    <h2>{{user.name}} 님 환영합니다. </h2>
+{% endif %}
+<img src="/static/account/cat.jpg" width="300">
+<img src='{% static "board/dog.jpg" %}' width="300">
+<!-- <img src="/static/board/dog.jpg" width="300"> -->
+{% endblock contents %}

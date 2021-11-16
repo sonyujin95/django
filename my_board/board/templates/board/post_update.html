@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% load bootstrap4 %}
+
+{% block title %}글 수정{% endblock title %}
+{% block contents %}
+<h1>글 수정</h1>
+{# View에서 form 변수에 Form객체를 담아서 context object로 전달. #}
+<form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type="submit" class="btn btn-primary">글수정</button>
+    <button type="reset" class="btn btn-primary">초기화</button>
+</form>
+{% endblock contents %}

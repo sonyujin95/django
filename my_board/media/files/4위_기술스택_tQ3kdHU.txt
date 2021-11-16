@@ -1,0 +1,148 @@
+*numpy
+- 파이썬으로 행렬, 수치 계산 등 데이터를 다루기 쉽게 도와주는 유명 데이터 조작 라이브러리
+
+*pandas
+- 정제되지 않은 raw data를 쉽게 다루게 도와주는 분석 단계의 프로그래밍 툴이다.
+- 데이터 분석을 쉽게하여 최종사용자를 위한 엑셀파일이 제작되도록 하는 일이 최종 목적이다.
+
+*seaborn
+- 향상된 데이터 시각화를 위해 만들어진 파이썬 라이브러리
+- 다른 분석 도구를 사용하여 일반적으로 여러 그래프를 가져오는 단일 그래프를 쉽게 생성할 수 있게 함
+- 5~6줄의 코드를 구현할 때, seaborn은 한 줄의 코드로 구현할 수 있다.
+
+*tensorflow
+- 구글의 2세대 머신 러닝 시스템
+- 스마트폰에서도 데이터 센터의 수천대 컴퓨터에서도 동작할수 있다고 구글에서 발표
+- 어떠한 제약도 받지 않고 유연하게 사용될 수 있는 기술
+- 머신러닝은 기본적으로 데이터 수집, 학습, 정보제공, 결과 등의 반복인데,
+이를 한줄의 과정으로 쉽게 도와준다.
+- 파이썬(트래픽 전달하거나 연결할 떄 적용) 언어를 사용(수학연산에 적용되는 언어는 c++이다)
+- 장점: 추상화, 디버깅과 시각화에 매우 능함. 구글의 시스템을 이용하면 빠르게 개발 가능하고 배포가 쉬움.
+
+*matplotlib.pyplot
+- 기능 : 시각화
+- 특징 : 비대화형(간단한 정보만 입력해서 플롯이 된다.)
+
+*import os
+- 파일의 경로나 폴더에 관한 처리를 하는 라이브러리
+
+*from distutils.dir_util import copy_tree, remove_tree
+- 폴더를 통째로 복사하거나 삭제할 수 있도록 한다. 
+
+* from PIL import image
+- 이미지 처리를 하기 위한 모듈
+
+* from random import randint
+- 파이썬에서 랜덤 관련한 함수들을 모아놓은 모듈
+- randint는 randint(a,b) 함수로 쓰일 때 a, b를 포함한 사이의 랜덤 정수를 반환
+
+* from imblearn.over_sampling import SMOTE
+- SMOTE 알고리즘은 오버샘플링 기법 중 합성데이터를 생성하는 방식으로 가장 많이 사용되는 모델
+- SMOTE란 합성 소수 샘플링 기술로 다수 클래스를 샘플링하고 기존 소수 샘플을 보간하여 새로운
+소수 인스턴스를 합성해낸다.
+- 소수데이터들 사이를 보간하여 작동하기 때문에 모델링셋의 소수데이터들 사이의 특성만
+반영하고 새로운 사례의 데이터 예측엔 취약할 수 있다.
+-  딥러닝 분석을 위해서는 많은 데이터 확보가 효과적이므로 오버샘플링 기법을 사용한다.
+
+* from sklearn.model_selection import train_test_split
+- 학습세트와 테스트 세트를 분리하기 위한 모듈
+- validation set로 검증단계 추가하여 overfitting 방지
+
+* from sklearn.metrics import matthews_corrcoef as MCC
+- Matthews 상관 계수는 이진 및 멀티 클래스 분류의 품질 측정으로 기계 학습에 사용된다.
+- 참과 거짓, 긍정과 부정을 고려하고 일반적으로 클래스의 크기가 매우 다른 경우에도 사용할 수
+있는 균형잡힌 척도로 간주
+- MCC는 본질적으로 -1과 +1 사이의 상관계수 값이다.( +1은 완전예측 0은 평균 랜덤예측, -1은 역예측)
+
+* from sklearn.metrics import balanced_accuracy_score as BAS
+- 균형 잡힌 정확도를 계산한다.
+- 불균형 데이터 세트를 처리하기 위한 이진 및 다중 클래스 분류 문제의 균형 잡힌 정확도
+- 각 클래스에서 얻은 회수율의 평균으로 정의된다.
+
+*from sklearn.metrics import classification_report, confusion_matrix
+- confusion_matrix(분류결과표)는 타겟의 원래 클래스와 모형이 예측한 클래스가 일치하는지
+갯수로 센 결과를 표나 나타낸 것이다. 정답클래스는 행(row)으로 예측한 클래스는 열(column)로 나타낸다.
+- classification_report는 정밀도, 재현율, F1 점수를 구하는 것을 제공한다. 각각의 클래스를 
+양성(positive) 클래스로 보았을 때의 정밀도, 재현율, F1점수를 각각 구하고 그 평균값으로
+전체 모형의 성능을 평가한다.
+**f점수**
+- 정밀도와 재현율의 가중조화평균을 F점수라고 한다. 정밀도에 주어지는 가중치를 베타라고 한다.
+- 베타가 1인 경우를 특별히 F1 점수라고 한다.
+
+*import tensorflow_addons as tfa
+- tensorflow에서 사용할 수 없는 새로운 기능을 구현하는 기여 저장소를 관리
+- 사용자가 지속 가능한 방식으로 tensorflow 생태계에 새로운 확장을 도입할 수 있도록 함
+- 조직 및 커뮤니케이션을 위해 4가지 플랫폼을 사용함
+	- 코드 협업 및 문제 관리를 위한 github
+	- 일반 발표 및 토론을 위한 메일 링리스트
+	- 커뮤니티 및 기여자 간의 빠른 커뮤니케이션을 위한 gitter
+	- 전략적 토론을 위한 월간 화상 회의
+
+*from keras.utils.vis_utils import plot_model
+- plot_model() 을 이용하면 Sequential() 으로 구성한 신경망 모델을 시각화 할 수 있다.
+- graphviz를 이용해서 model의 graph를 plot형태로 파일에 저장해준다.
+
+*from tensorflow.keras import Sequential, Input
+- Sequential 모델은 각 레이어에 정확히 하나의 입력 텐서와 하나의 출력 텐서가 있는 일반
+레이어 스택에 적합하다.
+- 모델에 다중 입력 또는 다중출력이 있을 때, 레이어에 다중 입력 또는 다중 출력이 있을 때,
+레이어를 공유해야 할 때, 비선형 토폴로지를 원할 때(잔류연결, 다중 분기 모델) 적합하지 않음.
+- Sequential 모델은 레이어의 리스트와 매우 유사하게 동작한다.
+- Input은 keras 텐서를 인스턴스화하는데 사용된다.
+
+*from tensorflow.keras.layers import Dense, Dropout
+- 모델에 Dropout 함수를 적용할 경우, 과적합을 방지하기 위해 무작위로 특정 노드(입력값)를
+0으로 만든다.
+- Dropout은 학습 시에만 적용되어 모델 정규화를 위해 사용되어야 하며, 테스트시에는
+적용되서는 안된다.
+- Dropout은 과대적합을 방지하기 위해 널리 사용되는 방법 중 하나이다.(나머지는 더 많은 데이터를 모은다,
+네트워크의 용량을 줄인다, 가중치 규제를 추가한다이다.)
+- Dense는 신경망을 만드는 것이다. 신경망을 이해할 때 사용하는 모듈이다. input을 넣었을 때,
+output으로 바꿔주는 중간다리 역할이다.
+
+*from tensorflow.keras.layers import Conv2D, Flatten
+- Conv2D는 2D 컨벌루션 레이어이다.(이미지에 대한 공간 컨볼루션이 하나의 예이다.)
+- Conv2D클래스를 사용할때의 목표는 혼란, 불안, 좌절을 줄이는데 도움이 되는 것이다.
+- flatten은 입력을 평평하게하고, 배치크기에 영향을 미치지 않는다.
+- flatten은 다차원 텐서(일반적으로 input)를 직렬화하는 방법을 명시한다. 이를 통해
+(평탄화 된) input 텐서와 첫번째 은닉층 간의 매핑이 가능하다. 첫번째 히든 레이어가 "밀도"이면
+(직렬화 된) input 텐서의 각 요소는 히든 배열의 각 요소와 연결된다.
+
+*from tensorflow.keras.callbacks import EarlyStopping
+- callback은 훈련, 평가 또는 추론 중에 Keras 모델의 동작을 사용자 정의할 수 있는 강력한 도구이다.
+- 훈련, 테스트 및 예측의 다양한 단계에서 호출되는 메서드 세트를 재정의한다. 훈련 중 모델의
+내부 상태 및 통계를 볼 때 유용하다.
+- EarlyStopping은 속성을 설정하여 최소 손실에 도달했을 때 훈련을 중단하는 Callback을
+생성하는 방법을 보여주는 것에서 더 완전한 일반적인 구현을 제공한다.
+
+*from tensorflow.keras.applications.inception_v3 import InceptionV3
+- inception 모델은 Tensorflow 공개 후 가장 많이 사용하는 Conv-Net 모델 중 하나이다.
+현재 version4까지 나와있다.
+- InceptionV3는 Inception V2 구조에 적용하여 가장 높은 성능을 나타내는 모델이다.
+- InceptionV3는 적은 파라미터를 가진 42-layer의 깊은 신경망으로 VGGNet와 비슷한 연산량을 가진다.
+- 이 모델은 앙상블 기법을 활용하여 ILSVR 2012 dataset으로 top-1 17.2% error, top-5 3.58% error를 달성한다.
+
+*from tensorflow.keras.preprocessing.image import ImageDataGenerator as IDG
+- 이미지 분류하는데 사용한다.
+- 이 클래스를 통해 객체를 생성할 때 파라미터를 전달해주는 것을 통해 데이터의 전처리를 쉽게 할 수 있고,
+또 이 객체의 flow_from_directory 메소드를 활용하면 폴더 형태로 된 데이터 구조를 바로 가져와서 사용가능하다.
+- 매우 직관적이고 코드도 모듈을 사용하지 않는 것에 비해 상당이 짧아진다.
+
+*from tensorflow.keras.layers import SeparableConv2D, BatchNormalization, MaxPool2D
+- SeparableConvolution2D는 깊이 분리 가능한 2D 컨볼루션이다. 분리 가능한 컨볼루션은 먼저
+깊이별 공간 컨볼류션(각 입력 채널에 개별적으로 작용)을 수행한 다음 결과 출력 채널을 함께 혼합하는
+점별 컨볼루션으로 구성된다.
+- 2. 직관적으로, 분리 가능한 컨볼루션은 컨볼루션 커널을 두 개의 더 작은 커널로 인수분해하는 방법
+또는 Inception 블록의 극단적인 버전으로 이해될 수 있다.
+- BatchNormalization(배치정규화)은 단순하게 평균과 분산을 구하는 것이 아니라 감마(Scale), 베타(Shift)를
+통한 변환을 통해 비선형 성질을 유지하면서 학습될 수 있게 해줌
+- 2. Internal Covariate Shift 문제로 인해 신경망이 깊어질 경우 학습이 어려웠던 문제점을 해결
+- 3. gradient의 스케일이나 초기 값에 대한 dependency 가 줄어들어 Large Learning Rate를 설정할 수
+있기 때문에 결과적으로 빠른 학습이 가능하다.
+- 4. 입력의 범위가 고정되기 때문에 saturating 한 함수를 활성화 함수로 써도 saturation 문제가
+일어나지 않음(saturation 문제란 가중치의 업데이트가 없어지는 현상임)
+- Maxpool2D는 2D 공간 데이터에 여러 입력 평면으로 구성된 입력 신호에 2D 최대 풀링을 적용한다.
+- 2. Pooling에 사용되는데 일반적으로 Max Pooling을 많이 쓰는 이유는 convolution 연산의 결과로
+나온 feature map이기 때문에 값이 클 수록 의도하고자 한 특징에 가까운 것이기 때문이다.
+크면 좋기 때문에 큰것을 사용한다.
+
